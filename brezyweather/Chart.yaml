@@ -1,0 +1,12 @@
+apiVersion: v2
+name: brezyweather
+description: BrezyWeather Helm chart for Kubernetes
+
+# Chart type
+type: application
+
+# Chart version
+version: 0.1.0
+
+# Application version
+appVersion: "1.0.0"

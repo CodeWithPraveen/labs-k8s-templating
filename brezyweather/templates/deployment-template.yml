@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: brezyweather-deployment
+  labels:
+    app: brezyweather
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: brezyweather
+  template:
+    metadata:
+      labels:
+        app: brezyweather
+    spec:
+      containers:
+      - name: brezyweather
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        resources: {{ toYaml .Values.resources | nindent 10 }}
+        ports:
+        - containerPort: 80
